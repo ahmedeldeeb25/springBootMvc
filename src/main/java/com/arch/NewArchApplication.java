@@ -28,15 +28,16 @@ public class NewArchApplication extends SpringBootServletInitializer implements 
 	public void run(String... args) throws Exception {
 
 		
-		userRepository.save(new user("500","ahmed mar3y" ,"123","ahmedmar3y108@gmail.com" , "tanta" ,"01015136837"));
-		
-	     for (user user : userRepository.findAll()) {
-	            System.out.println(user);
-	        }
-
-	        System.out.println(userRepository.findById("500").getUsername());
-
-		
+//		
+//		userRepository.save(new user("500","ahmed mar3y" ,"123","ahmedmar3y108@gmail.com" , "tanta" ,"01015136837"));
+//		
+//	     for (user user : userRepository.findAll()) {
+//	            System.out.println(user);
+//	        }
+//
+//	        System.out.println(userRepository.findById("500").getUsername());
+//
+//		
 		
 		
 	}

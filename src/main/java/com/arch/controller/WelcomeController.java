@@ -52,6 +52,9 @@ public class WelcomeController {
   		System.out.println("Error ");
   	  ModelAndView model = new ModelAndView();
 
+  	  
+  	  
+  	  
   	  //check if user is login
   	  Authentication auth = SecurityContextHolder.getContext().getAuthentication();
   	  if (!(auth instanceof AnonymousAuthenticationToken)) {

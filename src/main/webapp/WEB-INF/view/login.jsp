@@ -32,6 +32,8 @@
 		<label for="password">Password</label>
 		<input type="password" id="password" name="password"/>	
 	</p>
+	<input type="checkbox" name="remember-me" id="remember-me" />
+	<label>Remember me</label>
 	<input type="hidden"                        
 		name="${_csrf.parameterName}"
 		value="${_csrf.token}"/>

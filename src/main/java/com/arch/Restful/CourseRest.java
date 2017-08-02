@@ -1,12 +1,17 @@
 package com.arch.Restful;
 
+import org.apache.log4j.spi.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import com.arch.Entities.Course;
 import com.arch.Entities.Topics;
+import com.arch.Entities.Users;
 import com.arch.Service.CourseServiceImpl;
+import com.arch.mailSender.NotificationService;
+import com.arch.mongoEntities.user;
 
 import java.util.List;
 
@@ -16,9 +21,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/rest")
 public class CourseRest {
+	Logger logger=org.slf4j.LoggerFactory.getLogger(CourseRest.class);
+	
     @Autowired
     CourseServiceImpl courseService;
 
+
+    
+    
+    
+    
     @RequestMapping(value = "/topics/{topicId}/Course", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void createNew(@RequestBody Course Course, @PathVariable("topicId") String topicId) {
         Course.setTopics(new Topics(topicId, "", ""));

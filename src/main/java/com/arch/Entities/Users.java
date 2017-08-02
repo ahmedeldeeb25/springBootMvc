@@ -1,5 +1,5 @@
 package com.arch.Entities;
-// Generated Aug 1, 2017 4:17:48 PM by Hibernate Tools 5.2.3.Final
+// Generated Aug 1, 2017 8:02:47 PM by Hibernate Tools 5.2.3.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -20,21 +20,24 @@ public class Users implements java.io.Serializable {
 	private String username;
 	private String password;
 	private byte enabled;
+	private String email;
 	private Set<UserRoles> userRoleses = new HashSet<UserRoles>(0);
 
 	public Users() {
 	}
 
-	public Users(String username, String password, byte enabled) {
+	public Users(String username, String password, byte enabled, String email) {
 		this.username = username;
 		this.password = password;
 		this.enabled = enabled;
+		this.email = email;
 	}
 
-	public Users(String username, String password, byte enabled, Set<UserRoles> userRoleses) {
+	public Users(String username, String password, byte enabled, String email, Set<UserRoles> userRoleses) {
 		this.username = username;
 		this.password = password;
 		this.enabled = enabled;
+		this.email = email;
 		this.userRoleses = userRoleses;
 	}
 
@@ -49,7 +52,7 @@ public class Users implements java.io.Serializable {
 		this.username = username;
 	}
 
-	@Column(name = "password", nullable = false, length = 45)
+	@Column(name = "password", nullable = false, length = 60)
 	public String getPassword() {
 		return this.password;
 	}
@@ -65,6 +68,15 @@ public class Users implements java.io.Serializable {
 
 	public void setEnabled(byte enabled) {
 		this.enabled = enabled;
+	}
+
+	@Column(name = "email", nullable = false, length = 45)
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "users")

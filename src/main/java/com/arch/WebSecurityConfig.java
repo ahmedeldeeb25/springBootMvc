@@ -27,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers("/resources/**","/assets/**", "/register","/","/login").permitAll()
                 	.antMatchers("/admin/**").hasAnyRole("ADMIN")
-					.antMatchers("/rest/**").hasAnyRole("USER")
+					.antMatchers("/rest/**").permitAll()
 					.antMatchers("/user/**").hasAnyRole("USER")
                     .anyRequest().authenticated()
                     .and()
@@ -37,8 +37,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     defaultSuccessUrl("/user" ,true)
                     .permitAll()
                     .and()
-                .logout().logoutSuccessUrl("/logout") 
-                    .permitAll().and().csrf();
+                    //add remember me 
+                .logout().deleteCookies("remember-me").logoutSuccessUrl("/logout") 
+                    .permitAll().and().rememberMe().tokenValiditySeconds(120).and().csrf();
     }
 
     @Autowired

@@ -9,14 +9,36 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+
         <h1>Hello <b><c:out value="${pageContext.request.remoteUser}"/></b> </h1>
 <br >
 
+
+<form id="form" >
+
+Search By Topic : <input  type="text"  name="topic" id="topic" > <br>
+
+<input type="submit" value="Search ...."> 
+
+
+</form>
+
+
+
+
+<br > 
+<br > 
+<br > 
+<br > 
 <form action="/logout" method="post">
-          <input type="submit" value="Sign in as different user" /> 
+          <input type="submit" value="Logout .........." /> 
           <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </form>   
 
+
+
+<script type="text/javascript" src="assets/js/js.js"></script>
 
 </body>
 </html>
